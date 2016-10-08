@@ -12,6 +12,14 @@
     "starter",
     "boilerplate"
   ],
+  "bugs": {
+    "url": "https://github.com/lsentkiewicz/react-redux-boilerplate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lsentkiewicz/react-redux-boilerplate.git"
+  },
+  "homepage": "https://github.com/lsentkiewicz/react-redux-boilerplate#readme",
   "author": "Łukasz Sentkiewicz",
   "license": "MIT"
 }
