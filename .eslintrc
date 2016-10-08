@@ -1,20 +1,19 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
+  "parser": "babel-eslint",
+  "extends": [
     "airbnb"
   ],
   "plugins": [
     "babel"
   ],
-  "env"     : {
-    "browser" : true,
-    "mocha" : true
+  "env": {
+    "browser": true,
+    "mocha": true
   },
-  "globals" : {
-    "__DEV__"      : false,
-    "__PROD__"     : false,
-    "__DEBUG__"    : false,
-    "__BASENAME__" : false
+  "globals": {
+    "__DEV__": true,
+    "__PROD__": true,
+    "expect": true,
   },
   "rules": {
     "global-require": 0,
@@ -23,7 +22,10 @@
     "new-cap": 0,
     "react/jsx-no-bind": 0,
     "no-mixed-operators": 0,
-    "arrow-parens": [2, "always"],
+    "arrow-parens": [
+      2,
+      "always"
+    ],
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "import/no-named-as-default": 0,

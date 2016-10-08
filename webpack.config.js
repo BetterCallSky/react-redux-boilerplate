@@ -4,12 +4,13 @@ const _ = require('lodash');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const argv = require('yargs').argv;
 
 const __DEV__ = process.env.NODE_ENV === 'development';
 const __PROD__ = process.env.NODE_ENV === 'production';
 
 const fixStyleLoader = (loader) => {
-  if (__PROD__) {
+  if (!__DEV__) {
     const first = loader.loaders[0];
     const rest = loader.loaders.slice(1);
     loader.loader = ExtractTextPlugin.extract(first, rest.join('!'));
@@ -39,7 +40,9 @@ const getEnvPlugins = () => {
       }),
     ];
   }
-  return [];
+  return [
+    new ExtractTextPlugin('[name].[contenthash].css', { allChunks: true }),
+  ];
 };
 
 module.exports = {
@@ -55,6 +58,7 @@ module.exports = {
   },
   entry: {
     app: _.compact([
+      'babel-polyfill',
       __DEV__ && 'webpack-hot-middleware/client',
       './src/styles/style.scss',
       './src/main.jsx',
@@ -78,6 +82,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
+      '__COVERAGE__' : !argv.watch && process.env.NODE_ENV === 'test',
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
@@ -156,4 +161,7 @@ module.exports = {
       browsers: ['last 2 versions'],
     }),
   ],
+  sassLoader: {
+    includePaths: './src/styles',
+  },
 };
