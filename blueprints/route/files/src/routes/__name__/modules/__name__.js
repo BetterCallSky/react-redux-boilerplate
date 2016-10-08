@@ -1,4 +1,4 @@
-import {createAction, handleActions} from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 
 // ------------------------------------
 // Constants
@@ -23,5 +23,5 @@ export const actions = {
 // Reducer
 // ------------------------------------
 export default handleActions({
-  [SAMPLE]: (state, {payload}) => state,
+  [SAMPLE]: (state, { payload }) => state,
 }, {});

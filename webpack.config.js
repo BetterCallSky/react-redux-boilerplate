@@ -1,16 +1,9 @@
 /* eslint no-param-reassign: 0 */
 
-const path = require('path');
 const _ = require('lodash');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const config = {
-  root: path.resolve(__dirname, 'src'),
-  dist: path.resolve(__dirname, 'dist'),
-};
-
 
 const __DEV__ = process.env.NODE_ENV === 'development';
 const __PROD__ = process.env.NODE_ENV === 'production';
@@ -54,10 +47,10 @@ module.exports = {
   target: 'web',
   devtool: 'source-map',
   resolve: {
-    root: config.root,
+    root: './src',
     extensions: ['', '.js', '.jsx', '.json'],
     fallback: [
-//      paths.client('styles/img'),
+      './src/styles/img',
     ],
   },
   entry: {
@@ -66,10 +59,21 @@ module.exports = {
       './src/styles/style.scss',
       './src/main.jsx',
     ]),
+    // add common vendors that are used in all routes
+    vendor: [
+      'react',
+      'react-redux',
+      'react-router',
+      'redux',
+      'redux-actions',
+      'redux-connect',
+      'lodash',
+      'react-bootstrap',
+    ],
   },
   output: {
     filename: '[name].[hash].js',
-    path: config.dist,
+    path: './dist',
     publicPath: '/',
   },
   plugins: [

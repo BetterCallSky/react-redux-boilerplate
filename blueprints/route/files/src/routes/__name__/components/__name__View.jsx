@@ -1,8 +1,9 @@
-import React, {PropTypes} from 'react';
-import classes from './<%= pascalEntityName %>View.scss';
+import React, { PropTypes } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './<%= pascalEntityName %>View.scss';
 
 export const <%= pascalEntityName %>View = () => (
-  <div className={classes.<%= camelEntityName %>View}>
+  <div styleName="<%= dashesEntityName %>-view">
 
   </div>
 );
@@ -11,4 +12,4 @@ export const <%= pascalEntityName %>View = () => (
   foo: PropTypes.string.isRequired,
 };
 
-export default <%= pascalEntityName %>View;
+export default CSSModules(<%= pascalEntityName %>View, styles);
