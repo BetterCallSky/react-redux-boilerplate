@@ -1,0 +1,7 @@
+{
+  "extends": "stylelint-config-standard",
+  "ignoreFiles": [
+    "./src/styles/_bootstrap-variables.scss",
+    "./src/styles/_fonts.scss",
+  ]
+}
