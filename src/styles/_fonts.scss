@@ -1,0 +1,11 @@
+/* Sample usage of fonts */
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./font/HelveticaNeue.eot');
+  src: url('./font/HelveticaNeue.eot?#iefix') format('embedded-opentype'),
+  url('./font/HelveticaNeue.woff') format('woff'),
+  url('./font/HelveticaNeue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
